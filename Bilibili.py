@@ -138,7 +138,7 @@ class Bilibili(VideoExtractor):
         try:
             html_content = get_content(self.url, headers=self.bilibili_headers(referer=self.url))
         except:
-            print('error')
+            error = True
             html_content = ''  # live always returns 400 (why?)
         #self.title = match1(html_content,
         #                    r'<h1 title="([^"]+)"')
@@ -161,6 +161,8 @@ class Bilibili(VideoExtractor):
             self.url = 'https://www.bilibili.com/bangumi/play/ep%s' % ep_id
             html_content = get_content(self.url, headers=self.bilibili_headers(referer=self.url))
 
+        if html_content == '':
+            return error
         # sort it out
         if re.match(r'https?://(www\.)?bilibili\.com/audio/au(\d+)', self.url):
             sort = 'audio'
@@ -775,3 +777,6 @@ download = site.download_by_url
 download_playlist = site.download_playlist_by_url
 
 bilibili_download = download
+
+
+

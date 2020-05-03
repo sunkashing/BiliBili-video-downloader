@@ -1,3 +1,5 @@
+import socket
+
 from common import match1, maybe_print, download_urls, get_filename, parse_host, set_proxy, unset_proxy, get_content, \
     dry_run, player
 from common import print_more_compatible as print
@@ -6,6 +8,12 @@ import json_output
 import os
 import sys
 from urllib import error
+
+from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtCore import QSize
+from PyQt5.QtGui import QPixmap, QIcon
+from PyQt5.QtWidgets import QDesktopWidget, QFrame, QFileDialog, QLabel
+from video_downloader_GUI import MyWidget
 
 class Extractor():
     def __init__(self, *args):
@@ -40,7 +48,7 @@ class VideoExtractor():
         if args:
             self.url = args[0]
 
-    def download_by_url(self, url, **kwargs):
+    def download_by_url(self, url, thread, **kwargs):
         self.url = url
         self.vid = None
 
@@ -50,7 +58,11 @@ class VideoExtractor():
             video_info = self.prepare(**kwargs)
             print(video_info)
         except error.HTTPError as http_error:
+            thread.error_signal.emit('bv')
             return http_error.code
+        if video_info is True:
+            thread.error_signal.emit('bv')
+            return 404
 
         if self.out:
             return

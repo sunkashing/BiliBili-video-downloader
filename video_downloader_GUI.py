@@ -1,7 +1,7 @@
 import urllib.request
 
 from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import QSize
+from PyQt5.QtCore import QSize, pyqtSignal, QThread
 from PyQt5.QtGui import QPixmap, QIcon
 from PyQt5.QtWidgets import QDesktopWidget, QFrame, QFileDialog, QLabel
 
@@ -39,6 +39,24 @@ class MyWidget(QtWidgets.QWidget):
         self.container.addStretch()
         self.setLayout(self.container)
         self.initUI()
+        self.mythread = MyThread(self)
+        self.download_button.clicked.connect(self.download_action)
+        self.mythread.process_signal.connect(self.process_callback)
+        self.mythread.error_signal.connect(self.error_callback)
+        self.mythread.video_info_signal.connect(self.video_info_callback)
+
+    def download_action(self):
+        self.mythread.start()
+
+    def process_callback(self, i):
+        return
+
+    def error_callback(self, i):
+        self.error_print(i)
+        return
+
+    def video_info_callback(self, i):
+        return
 
     def init_BV_box(self):
         BV_widget = QtWidgets.QWidget()
@@ -48,7 +66,6 @@ class MyWidget(QtWidgets.QWidget):
         BV_box.addWidget(self.download_button)
         BV_widget.setFixedHeight(60)
         self.container.addWidget(BV_widget)
-        self.download_button.clicked.connect(self.download_action)
         self.container.addWidget(QHLine())
 
     def init_output_box(self):
@@ -156,23 +173,56 @@ class MyWidget(QtWidgets.QWidget):
         # top left of rectangle becomes top left of window centering it
         self.move(qr.topLeft())
 
-    def download_action(self):
+    def error_print(self, error_object):
+        if error_object == 'bv':
+            self.error.setPlainText('Your BV number is not valid.')
+        elif error_object == 'output':
+            self.error.setPlainText('Your output directory is not valid.')
+        else:
+            self.error.setPlainText(error_object)
+
+
+class MyThread(QThread):
+    process_signal = pyqtSignal(str)
+    error_signal = pyqtSignal(str)
+    video_info_signal = pyqtSignal(dict)
+
+    def __init__(self, widget):
+        super(MyThread, self).__init__()
+        self.w = widget
+
+    def run(self):
         is_valid = self.check_valid_input()
         if is_valid is not True:
-            self.error_print(is_valid)
+            self.error_signal.emit(is_valid)
+            return
         else:
-            self.error.setPlainText('')
+            self.error_signal.emit('')
 
+        options = self.get_options()
+        context = bilibili.download(self.w.BV_input.text(), self,
+                                    output_dir=self.w.output_directory.text(), merge=True, caption=True,
+                                    keep_obj=False)
+
+    # def download_action(self):
+    #     is_valid = self.check_valid_input()
+    #     if is_valid is not True:
+    #         self.w.error_print(is_valid)
+    #         return
+    #     else:
+    #         self.w.error.setPlainText('')
+    #
+    #     options = self.get_options()
+    #     context = bilibili.download(self.w.BV_input.text(), self.w,
+    #                                 output_dir=self.w.output_directory.text(), merge=True, caption=True,
+    #                                 keep_obj=False)
+
+    def get_options(self):
+        return
 
     def check_valid_input(self):
-        if self.BV_input.text().strip() == '':
-            return self.BV_input
-        if self.output_directory.text().strip() == '':
-            return self.output_directory
+        if self.w.BV_input.text().strip() == '':
+            return 'bv'
+        if self.w.output_directory.text().strip() == '':
+            return 'output'
         return True
-
-    def error_print(self, error_object):
-        if error_object is self.BV_input:
-            self.error.setPlainText('Your BV number is not valid.')
-        elif error_object is self.output_directory:
-            self.error.setPlainText('Your output directory is not valid.')
