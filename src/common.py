@@ -18,7 +18,8 @@ from src.util import log, term
 from src.util.git import get_version
 from src.util.strings import get_filename, unescape_html
 import src.json_output as json_output_
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer,encoding='utf8')
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
+
 
 SITES = {
     '163'              : 'netease',
@@ -402,6 +403,7 @@ def urlopen_with_retry(*args, **kwargs):
         except socket.timeout as e:
             print('request attempt %s timeout' % str(i + 1))
             logging.debug('request attempt %s timeout' % str(i + 1))
+
             if i + 1 == retry_time:
                 raise e
         # try to tackle youku CDN fails
