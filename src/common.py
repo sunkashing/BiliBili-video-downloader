@@ -21,6 +21,9 @@ import src.json_output as json_output_
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf8')
 
 
+
+ssl._create_default_https_context = ssl._create_unverified_context
+
 SITES = {
     '163'              : 'netease',
     '56'               : 'w56',
@@ -337,7 +340,6 @@ def undeflate(data):
 # DEPRECATED in favor of get_content()
 def get_response(url, faker=False):
     logging.debug('get_response: %s' % url)
-
     # install cookies
     if cookies:
         opener = request.build_opener(request.HTTPCookieProcessor(cookies))

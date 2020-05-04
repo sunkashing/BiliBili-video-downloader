@@ -5,7 +5,6 @@ from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import QSize, pyqtSignal, QThread
 from PyQt5.QtGui import QPixmap, QIcon, QTextCursor
 from PyQt5.QtWidgets import QDesktopWidget, QFrame, QFileDialog, QLabel
-
 from src import bilibili
 from src.merge_video_danmaku import Danmaku2ASS
 

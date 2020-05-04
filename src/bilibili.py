@@ -4,6 +4,8 @@ from src.common import *
 from src.extractor import VideoExtractor
 
 import hashlib
+import socket
+from urllib import error
 
 
 class Bilibili(VideoExtractor):
@@ -140,9 +142,14 @@ class Bilibili(VideoExtractor):
             thread.process_signal.emit('Start to retrieve content...')
             html_content = get_content(self.url, headers=self.bilibili_headers(referer=self.url))
             thread.process_signal.emit('Finished retrieving content.')
-        except:
-            error = True
+        except socket.timeout as e:
+            e = True
             html_content = ''  # live always returns 400 (why?)
+            thread.process_signal.emit('request attempt timeout')
+        except error.HTTPError as http_error:
+            e = True
+            html_content = ''  # live always returns 400 (why?)
+            thread.process_signal.emit('HTTP Error with code{}'.format(http_error.code))
         #self.title = match1(html_content,
         #                    r'<h1 title="([^"]+)"')
 
@@ -166,7 +173,7 @@ class Bilibili(VideoExtractor):
 
         thread.process_signal.emit('Finished matching url pattern.')
         if html_content == '':
-            return error
+            return e
         # sort it out
         if re.match(r'https?://(www\.)?bilibili\.com/audio/au(\d+)', self.url):
             sort = 'audio'
