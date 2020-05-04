@@ -2,12 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87709fe-df56-4460-8175-f16a4047eb17" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/merge_video_danmaku.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bilibili.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bilibili.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_downloader_GUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/video_downloader_GUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/__init__ 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/downloader/__init__ 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/downloader/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/openssl/__init__ 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/openssl/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/__init__ 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/__main__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/dragonplayer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/gnome_mplayer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/mplayer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/vlc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/wmp.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/__init__ 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/ffmpeg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/libav.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/mencoder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/json_output.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/merge_video_danmaku.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/__init__ 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/ffmpeg 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/ffmpeg.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/join_flv 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/join_flv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/join_mp4 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/join_mp4.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/join_ts 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/join_ts.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/rtmpdump 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processor/rtmpdump.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/fs.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/git.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/log.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/os.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/strings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/term.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_downloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/video_downloader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/video_downloader_GUI.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +76,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="video_downloader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BiliBili-video-downloader" />
@@ -45,7 +90,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
@@ -75,7 +120,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588378998502</updated>
-      <workItem from="1588379002663" duration="59667000" />
+      <workItem from="1588379002663" duration="67281000" />
     </task>
     <servers />
   </component>
@@ -83,36 +128,51 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588560607996">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1588560607996" />
     <state x="354" y="250" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1588465994277">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="354" y="250" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.900@0.0.1440.900" timestamp="1588465994277" />
-    <state width="1397" height="172" key="GridCell.Tab.0.bottom" timestamp="1588554667908">
+    <state width="1397" height="172" key="GridCell.Tab.0.bottom" timestamp="1588565075581">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1397" height="172" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588554667908" />
+    <state width="1397" height="172" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1588565075581" />
     <state width="1397" height="227" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1588380045885" />
-    <state width="1397" height="172" key="GridCell.Tab.0.center" timestamp="1588554667906">
+    <state width="1397" height="172" key="GridCell.Tab.0.center" timestamp="1588565075579">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1397" height="172" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588554667906" />
+    <state width="1397" height="172" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1588565075579" />
     <state width="1397" height="227" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1588380045884" />
-    <state width="1397" height="172" key="GridCell.Tab.0.left" timestamp="1588554667906">
+    <state width="1397" height="172" key="GridCell.Tab.0.left" timestamp="1588565075579">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1397" height="172" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588554667906" />
+    <state width="1397" height="172" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1588565075579" />
     <state width="1397" height="227" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1588380045883" />
-    <state width="1397" height="172" key="GridCell.Tab.0.right" timestamp="1588554667907">
+    <state width="1397" height="172" key="GridCell.Tab.0.right" timestamp="1588565075580">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1397" height="172" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588554667907" />
+    <state width="1397" height="172" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1588565075580" />
     <state width="1397" height="227" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1588380045885" />
     <state x="364" y="282" key="com.intellij.ide.util.TipDialog" timestamp="1588379002691">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="364" y="282" key="com.intellij.ide.util.TipDialog/0.0.1440.900@0.0.1440.900" timestamp="1588379002691" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/util/log.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BiliBili_video_downloader$video_downloader.coverage" NAME="video_downloader Coverage Results" MODIFIED="1588554667898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/BiliBili_video_downloader$video_downloader.coverage" NAME="video_downloader Coverage Results" MODIFIED="1588564830065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
