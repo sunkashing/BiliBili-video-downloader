@@ -65,7 +65,7 @@ Open a target Bilibili video site from browser, and paste the url to the `BV num
 If you are a membership(大会员) and want to download those membership-quality videos(e.g. 1080P60, 4K).
 Go to the target video's site and open the developer tool of the browser. Choose `Network` menu from the menubar and choose `Headers` from the submenu.
 If the `Has blocked cookies` is enabled, disable it. Refresh the page, find a package whose name is same as the video's BV number(usually the top one in the `Name` column) and clicked on it.
-Go to `Request Headers` and find `Cookie` field. Copy the value of it(Do not include `Cookie:`) and paste it to the GUI's `Cookie(opttional):` field.
+Go to `Request Headers` and find `Cookie` field. Copy the value of it(Do not include `Cookie:`) and paste it to the GUI's `Cookie(optional):` field.
 
 
 #### Step3
