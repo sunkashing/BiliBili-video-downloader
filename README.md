@@ -19,7 +19,7 @@ For Windows user, only terminal python run is available.
 ### Prerequisites
 
 **Note:**
-The following dependencies are necessary for Windows user(not using GUI):
+The following dependencies are necessary for Windows user(not using Executable):
 
 * **[Python](https://www.python.org/downloads/)**  3.2 or above
 * **[FFmpeg](https://www.ffmpeg.org/)** 1.0 or above
