@@ -234,7 +234,7 @@ class VideoExtractor():
                 stream_id = kwargs['stream_id']
             else:
                 # Download stream with the best quality
-                from processor.ffmpeg import has_ffmpeg_installed
+                from src.processor.ffmpeg import has_ffmpeg_installed
                 if has_ffmpeg_installed() and player is None and self.dash_streams or not self.streams_sorted:
                     # stream_id = list(self.dash_streams)[-1]
                     itags = sorted(self.dash_streams,
