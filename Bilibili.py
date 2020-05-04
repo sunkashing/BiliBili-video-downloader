@@ -132,11 +132,14 @@ class Bilibili(VideoExtractor):
         except:
             return err_value
 
-    def prepare(self, **kwargs):
+    def prepare(self, thread, **kwargs):
         context = {}
         self.stream_qualities = {s['quality']: s for s in self.stream_types}
+
         try:
+            thread.process_signal.emit('Start to retrieve content...')
             html_content = get_content(self.url, headers=self.bilibili_headers(referer=self.url))
+            thread.process_signal.emit('Finished retrieving content.')
         except:
             error = True
             html_content = ''  # live always returns 400 (why?)
@@ -161,6 +164,7 @@ class Bilibili(VideoExtractor):
             self.url = 'https://www.bilibili.com/bangumi/play/ep%s' % ep_id
             html_content = get_content(self.url, headers=self.bilibili_headers(referer=self.url))
 
+        thread.process_signal.emit('Finished matching url pattern.')
         if html_content == '':
             return error
         # sort it out
@@ -183,6 +187,7 @@ class Bilibili(VideoExtractor):
             return
 
         # regular av video
+        thread.process_signal.emit('Start to process video info...')
         if sort == 'video':
             initial_state_text = match1(html_content, r'__INITIAL_STATE__=(.*?);\(function\(\)')  # FIXME
             initial_state = json.loads(initial_state_text)
@@ -191,7 +196,8 @@ class Bilibili(VideoExtractor):
             playinfo_text = match1(html_content, r'__playinfo__=(.*?)</script><script>')  # FIXME
             playinfo = json.loads(playinfo_text) if playinfo_text else None
 
-            html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie='CURRENT_FNVAL=16'))
+
+            html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie=kwargs.get('cookie')))
             playinfo_text_ = match1(html_content_, r'__playinfo__=(.*?)</script><script>')  # FIXME
             playinfo_ = json.loads(playinfo_text_) if playinfo_text_ else None
 
@@ -465,6 +471,8 @@ class Bilibili(VideoExtractor):
             container = 'jpg'  # enforce JPG container
             self.streams[container] = {'container': container,
                                        'size': size, 'src': urls}
+        thread.process_signal.emit('Finished processing video info.')
+        return context
 
     def prepare_by_cid(self,avid,cid,title,html_content,playinfo,playinfo_,url):
         #response for interaction video
@@ -633,7 +641,8 @@ class Bilibili(VideoExtractor):
                 playinfo_text = match1(html_content, r'__playinfo__=(.*?)</script><script>')  # FIXME
                 playinfo = json.loads(playinfo_text) if playinfo_text else None
 
-                html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie='CURRENT_FNVAL=16'))
+                # html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie='CURRENT_FNVAL=16'))
+                html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie=kwargs.get('cookie')))
                 playinfo_text_ = match1(html_content_, r'__playinfo__=(.*?)</script><script>')  # FIXME
                 playinfo_ = json.loads(playinfo_text_) if playinfo_text_ else None
 
@@ -667,7 +676,9 @@ class Bilibili(VideoExtractor):
                 playinfo_text = match1(html_content, r'__playinfo__=(.*?)</script><script>')  # FIXME
                 playinfo = json.loads(playinfo_text) if playinfo_text else None
 
-                html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie='CURRENT_FNVAL=16'))
+                # html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie='CURRENT_FNVAL=16'))
+                html_content_ = get_content(self.url, headers=self.bilibili_headers(
+                    cookie=kwargs.get('cookie')))
                 playinfo_text_ = match1(html_content_, r'__playinfo__=(.*?)</script><script>')  # FIXME
                 playinfo_ = json.loads(playinfo_text_) if playinfo_text_ else None
                 p = int(match1(self.url, r'[\?&]p=(\d+)') or match1(self.url, r'/index_(\d+)') or '1')-1

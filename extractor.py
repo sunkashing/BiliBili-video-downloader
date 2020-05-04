@@ -9,11 +9,6 @@ import os
 import sys
 from urllib import error
 
-from PyQt5 import QtWidgets, QtCore
-from PyQt5.QtCore import QSize
-from PyQt5.QtGui import QPixmap, QIcon
-from PyQt5.QtWidgets import QDesktopWidget, QFrame, QFileDialog, QLabel
-from video_downloader_GUI import MyWidget
 
 class Extractor():
     def __init__(self, *args):
@@ -51,19 +46,20 @@ class VideoExtractor():
     def download_by_url(self, url, thread, **kwargs):
         self.url = url
         self.vid = None
+        thread.process_signal.emit("Start to get video's info...")
 
         if 'extractor_proxy' in kwargs and kwargs['extractor_proxy']:
             set_proxy(parse_host(kwargs['extractor_proxy']))
         try:
-            video_info = self.prepare(**kwargs)
-            print(video_info)
+            video_info = self.prepare(thread, **kwargs)
         except error.HTTPError as http_error:
             thread.error_signal.emit('bv')
             return http_error.code
         if video_info is True:
             thread.error_signal.emit('bv')
             return 404
-
+        thread.video_info_signal.emit(video_info)
+        thread.process_signal.emit("Successfully got video's info.")
         if self.out:
             return
         if 'extractor_proxy' in kwargs and kwargs['extractor_proxy']:
@@ -76,12 +72,18 @@ class VideoExtractor():
             self.streams_sorted = [
                 dict([('itag', stream_type['itag'])] + list(self.streams[stream_type['itag']].items())) for stream_type
                 in self.__class__.stream_types if stream_type['itag'] in self.streams]
-
+        thread.process_signal.emit("Start to extract video...")
         self.extract(**kwargs)
-        context = self.download(**kwargs)
+        thread.process_signal.emit("Successfully extracted video.")
+        try:
+            context = self.download(thread, **kwargs)
+        except error.HTTPError as http_error:
+            thread.error_signal.emit('bv')
+            return http_error.code
+        thread.process_signal.emit('Successfully downloaded video and danmaku!')
         return context
 
-    def download_by_vid(self, vid, **kwargs):
+    def download_by_vid(self, thread, vid, **kwargs):
         self.url = None
         self.vid = vid
 
@@ -101,9 +103,9 @@ class VideoExtractor():
 
         self.extract(**kwargs)
 
-        self.download(**kwargs)
+        self.download(thread, **kwargs)
 
-    def prepare(self, **kwargs):
+    def prepare(self, thread, **kwargs):
         pass
         # raise NotImplementedError()
 
@@ -206,7 +208,7 @@ class VideoExtractor():
         print("playlist:            %s" % self.title)
         print("videos:")
 
-    def download(self, **kwargs):
+    def download(self, thread, **kwargs):
         if 'json_output' in kwargs and kwargs['json_output']:
             json_output.output(self)
         elif 'info_only' in kwargs and kwargs['info_only']:
@@ -244,6 +246,7 @@ class VideoExtractor():
 
             if 'index' not in kwargs:
                 context = self.p(stream_id)
+                thread.video_info_signal.emit(context)
             else:
                 self.p_i(stream_id)
 
@@ -258,12 +261,6 @@ class VideoExtractor():
 
             if ext == 'm3u8' or ext == 'm4a':
                 ext = 'mp4'
-            print('********')
-            # print(self.streams[stream_id])
-            for url in urls:
-                print(url)
-            print(len(urls))
-            print('********')
             if not urls:
                 log.wtf('[Failed] Cannot extract video source.')
             # For legacy main()
@@ -272,33 +269,38 @@ class VideoExtractor():
                 headers['User-Agent'] = self.ua
             if self.referer is not None:
                 headers['Referer'] = self.referer
-            download_urls(urls, self.title, ext, total_size, headers=headers,
+            download_urls(thread, urls, self.title, ext, total_size, headers=headers,
                           output_dir=kwargs['output_dir'],
                           merge=kwargs['merge'],
                           av=stream_id in self.dash_streams)
 
             if 'caption' not in kwargs or not kwargs['caption']:
                 print('Skipping captions or danmaku.')
+                thread.process_signal.emit('Skipping captions or danmaku.')
                 return
 
             for lang in self.caption_tracks:
                 filename = '%s.%s.srt' % (get_filename(self.title), lang)
                 print('Saving %s ... ' % filename, end="", flush=True)
+                thread.process_signal.emit('Saving %s ... ' % filename)
                 srt = self.caption_tracks[lang]
                 with open(os.path.join(kwargs['output_dir'], filename),
                           'w', encoding='utf-8') as x:
                     x.write(srt)
                 print('Done.')
+                thread.process_signal.emit('Done.')
 
             if self.danmaku is not None and not dry_run:
                 filename = '{}.cmt.xml'.format(get_filename(self.title))
                 print('Downloading {} ...\n'.format(filename))
+                thread.process_signal.emit('Downloading {} ...\n'.format(filename))
                 with open(os.path.join(kwargs['output_dir'], filename), 'w', encoding='utf8') as fp:
                     fp.write(self.danmaku)
 
             if self.lyrics is not None and not dry_run:
                 filename = '{}.lrc'.format(get_filename(self.title))
                 print('Downloading {} ...\n'.format(filename))
+                thread.process_signal.emit('Downloading {} ...\n'.format(filename))
                 with open(os.path.join(kwargs['output_dir'], filename), 'w', encoding='utf8') as fp:
                     fp.write(self.lyrics)
             # For main_dev()

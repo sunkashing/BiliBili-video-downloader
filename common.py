@@ -609,7 +609,7 @@ def url_locations(urls, faker=False, headers={}):
 
 
 def url_save(
-    url, filepath, bar, refer=None, is_part=False, faker=False,
+    thread, url, filepath, bar, refer=None, is_part=False, faker=False,
     headers=None, timeout=None, **kwargs
 ):
     tmp_headers = headers.copy() if headers is not None else {}
@@ -646,7 +646,7 @@ def url_save(
                         )
                 else:
                     if bar:
-                        bar.update_received(file_size)
+                        bar.update_received(thread, file_size)
                 return
             else:
                 if not is_part:
@@ -681,7 +681,7 @@ def url_save(
         if os.path.exists(temp_filepath):
             received += os.path.getsize(temp_filepath)
             if bar:
-                bar.update_received(os.path.getsize(temp_filepath))
+                bar.update_received(thread, os.path.getsize(temp_filepath))
     else:
         open_mode = 'wb'
 
@@ -756,7 +756,7 @@ def url_save(
                     received += len(buffer)
                     received_chunk += len(buffer)
                     if bar:
-                        bar.update_received(len(buffer))
+                        bar.update_received(thread, len(buffer))
 
     assert received == os.path.getsize(temp_filepath), '%s == %s == %s' % (
         received, os.path.getsize(temp_filepath), temp_filepath
@@ -791,7 +791,7 @@ class SimpleProgressBar:
             total_pieces_len
         )
 
-    def update(self):
+    def update(self, thread):
         self.displayed = True
         bar_size = self.bar_size
         percent = round(self.received * 100 / self.total_size, 1)
@@ -811,9 +811,10 @@ class SimpleProgressBar:
             self.current_piece, self.total_pieces, self.speed
         )
         sys.stdout.write('\r' + bar)
+        thread.process_signal.emit('\r' + bar)
         sys.stdout.flush()
 
-    def update_received(self, n):
+    def update_received(self, thread, n):
         self.received += n
         time_diff = time.time() - self.last_updated
         bytes_ps = n / time_diff if time_diff else 0
@@ -826,7 +827,7 @@ class SimpleProgressBar:
         else:
             self.speed = '{:4.0f}  B/s'.format(bytes_ps)
         self.last_updated = time.time()
-        self.update()
+        self.update(thread)
 
     def update_piece(self, n):
         self.current_piece = n
@@ -853,9 +854,9 @@ class PiecesProgressBar:
         sys.stdout.write('\r' + bar)
         sys.stdout.flush()
 
-    def update_received(self, n):
+    def update_received(self, thread, n):
         self.received += n
-        self.update()
+        self.update(thread)
 
     def update_piece(self, n):
         self.current_piece = n
@@ -870,7 +871,7 @@ class DummyProgressBar:
     def __init__(self, *args):
         pass
 
-    def update_received(self, n):
+    def update_received(self, thread, n):
         pass
 
     def update_piece(self, n):
@@ -918,7 +919,7 @@ def print_user_agent(faker=False):
     print('User Agent: %s' % user_agent)
 
 def download_urls(
-    urls, title, ext, total_size, output_dir='.', refer=None, merge=True,
+    thread, urls, title, ext, total_size, output_dir='.', refer=None, merge=True,
     faker=False, headers={}, **kwargs
 ):
     assert urls
@@ -958,8 +959,10 @@ def download_urls(
                 or skip_existing_file_size_check):
             if skip_existing_file_size_check:
                 log.w('Skipping %s without checking size: file already exists' % output_filepath)
+                thread.process_signal.emit('Skipping %s without checking size: file already exists' % output_filepath)
             else:
                 log.w('Skipping %s: file already exists' % output_filepath)
+                thread.process_signal.emit('Skipping %s: file already exists' % output_filepath)
             print()
             return
         bar = SimpleProgressBar(total_size, len(urls))
@@ -969,16 +972,18 @@ def download_urls(
     if len(urls) == 1:
         url = urls[0]
         print('Downloading %s ...' % tr(output_filename))
-        bar.update()
+        thread.process_signal.emit('Downloading %s ...' % tr(output_filename))
+        bar.update(thread)
         url_save(
-            url, output_filepath, bar, refer=refer, faker=faker,
+            thread, url, output_filepath, bar, refer=refer, faker=faker,
             headers=headers, **kwargs
         )
         bar.done()
     else:
         parts = []
         print('Downloading %s ...' % tr(output_filename))
-        bar.update()
+        thread.process_signal.emit('Downloading %s ...' % tr(output_filename))
+        bar.update(thread)
         for i, url in enumerate(urls):
             output_filename_i = get_output_filename(urls, title, ext, output_dir, merge, part=i)
             output_filepath_i = os.path.join(output_dir, output_filename_i)
@@ -986,7 +991,7 @@ def download_urls(
             # print('Downloading %s [%s/%s]...' % (output_filename_i, i + 1, len(urls)))
             bar.update_piece(i + 1)
             url_save(
-                url, output_filepath_i, bar, refer=refer, is_part=True, faker=faker,
+                thread, url, output_filepath_i, bar, refer=refer, is_part=True, faker=faker,
                 headers=headers, **kwargs
             )
         bar.done()
@@ -1001,6 +1006,7 @@ def download_urls(
                 from processor.ffmpeg import ffmpeg_concat_av
                 ret = ffmpeg_concat_av(parts, output_filepath, ext)
                 print('Merged into %s' % output_filename)
+                thread.process_signal.emit('Merged into %s' % output_filename)
                 if ret == 0:
                     for part in parts:
                         os.remove(part)
@@ -1031,6 +1037,7 @@ def download_urls(
                     from processor.join_mp4 import concat_mp4
                     concat_mp4(parts, output_filepath)
                 print('Merged into %s' % output_filename)
+                thread.process_signal.emit('Merged into %s' % output_filename)
             except:
                 raise
             else:
@@ -1047,6 +1054,7 @@ def download_urls(
                     from processor.join_ts import concat_ts
                     concat_ts(parts, output_filepath)
                 print('Merged into %s' % output_filename)
+                thread.process_signal.emit('Merged into %s' % output_filename)
             except:
                 raise
             else:
@@ -1055,6 +1063,7 @@ def download_urls(
 
         else:
             print("Can't merge %s files" % ext)
+            thread.error_signal.emit("Can't merge %s files" % ext)
 
     print()
 
