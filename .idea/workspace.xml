@@ -3,51 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d87709fe-df56-4460-8175-f16a4047eb17" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/__init__ 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/downloader/__init__ 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/downloader/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/openssl/__init__ 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/openssl/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/__init__ 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/__main__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/dragonplayer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/gnome_mplayer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/mplayer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/vlc.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/player/wmp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/__init__ 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/ffmpeg.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/libav.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli_wrapper/transcoder/mencoder.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_output.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/merge_video_danmaku.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/__init__ 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/ffmpeg 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/ffmpeg.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/join_flv 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/join_flv.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/join_mp4 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/join_mp4.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/join_ts 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/join_ts.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/rtmpdump 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/processor/rtmpdump.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/fs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/git.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/log.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/os.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/strings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/term.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_downloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/video_downloader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/video_downloader_GUI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1588378998502</updated>
-      <workItem from="1588379002663" duration="67281000" />
+      <workItem from="1588379002663" duration="70430000" />
     </task>
     <servers />
   </component>
