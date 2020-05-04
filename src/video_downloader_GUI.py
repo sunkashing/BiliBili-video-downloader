@@ -122,7 +122,7 @@ class MyWidget(QtWidgets.QWidget):
     def init_BV_box(self):
         BV_widget = QtWidgets.QWidget()
         BV_box = QtWidgets.QHBoxLayout(BV_widget)
-        BV_box.addWidget(QtWidgets.QLabel('BV number: '))
+        BV_box.addWidget(QtWidgets.QLabel('Bilibili url: '))
         BV_box.addWidget(self.BV_input)
         BV_box.addWidget(self.download_button)
         BV_widget.setFixedHeight(60)
