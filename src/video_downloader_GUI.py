@@ -288,6 +288,10 @@ class MyThread(QThread):
         context = bilibili.download(self.w.BV_input.text(), self,
                                     output_dir=output_dir, merge=True, caption=True,
                                     keep_obj=False, cookie=ck)
+        if type(context) is not dict:
+            self.error_signal.emit('bv')
+            self.download_button_enabled.emit('true')
+            return
         # self.error_signal.emit(str(context))
         video_file = context['title'] + '.' + context['stream']['container']
         danmaku_file = '{}.cmt.xml'.format(context['title'])
