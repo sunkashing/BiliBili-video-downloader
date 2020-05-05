@@ -2,8 +2,7 @@
 
 
 [Bilibili-video-downloader](https://you-get.org/) is a simple Bilibili video and danmaku downloader with GUI.
-Currently only support GUI for Mac OS.
-For Windows user, only terminal python run is available.
+
 
 **Note:**
 * Some videos cannot be downloaded due to region's difference. Only who lives in mainland, China could download videos such as bangumi and films.
@@ -35,21 +34,22 @@ $ git clone https://github.com/sunkashing/BiliBili-video-downloader
 
 ## Getting Started
 
+**Note:**
+
+* Ensure you have downloaded Prerequisites(Python and FFmpeg)
+
 ### Open application GUI
 
 
 #### Mac user
 
-Go to `Bilibili-video-downloader/dist/` folder, and click `video_downloader.app` to run application.
+Go to `Bilibili-video-downloader/Mac/dist/` folder, and click `video_downloader.app` to run application.
 
 
 #### Windows user
 
-Open a terminal, after installing all required libraries and packages, type
+Go to `Bilibili-video-downloader/Windows/dist/` folder, and click `video_downloader.exe` to run application.
 
-```sh
-$ python3 video_downloader.py
-```
 
 
 
@@ -57,7 +57,7 @@ $ python3 video_downloader.py
 
 #### Step1
 
-Open a target Bilibili video site from browser, and paste the url to the `BV number:` input field
+Open a target Bilibili video site from browser, and paste the url to the `Bilibili url:` input field
 
 
 #### Step2 (optional)
