@@ -1,4 +1,5 @@
-('D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\build\\video_downloader\\PKG-00.pkg',
+('/Users/jiachengsun/Library/Mobile '
+ 'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/build/video_downloader/PKG-00.pkg',
  {'BINARY': 1,
   'DATA': 1,
   'EXECUTABLE': 1,
@@ -7,116 +8,143 @@
   'PYSOURCE': 1,
   'PYZ': 0},
  [('PYZ-00.pyz',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\build\\video_downloader\\PYZ-00.pyz',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/build/video_downloader/PYZ-00.pyz',
    'PYZ'),
+  ('_struct',
+   '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/lib-dynload/_struct.cpython-37m-darwin.so',
+   'EXTENSION'),
+  ('zlib',
+   '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/lib-dynload/zlib.cpython-37m-darwin.so',
+   'EXTENSION'),
   ('struct',
-   'd:\\users\\sunkashing\\appdata\\local\\programs\\python\\python38\\lib\\struct.pyo',
+   '/usr/local/Cellar/python/3.7.5/Frameworks/Python.framework/Versions/3.7/lib/python3.7/struct.pyo',
    'PYMODULE'),
   ('pyimod01_os_path',
-   'd:\\users\\sunkashing\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\PyInstaller\\loader\\pyimod01_os_path.pyc',
+   '/usr/local/lib/python3.7/site-packages/PyInstaller/loader/pyimod01_os_path.pyc',
    'PYMODULE'),
   ('pyimod02_archive',
-   'd:\\users\\sunkashing\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\PyInstaller\\loader\\pyimod02_archive.pyc',
+   '/usr/local/lib/python3.7/site-packages/PyInstaller/loader/pyimod02_archive.pyc',
    'PYMODULE'),
   ('pyimod03_importers',
-   'd:\\users\\sunkashing\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\PyInstaller\\loader\\pyimod03_importers.pyc',
+   '/usr/local/lib/python3.7/site-packages/PyInstaller/loader/pyimod03_importers.pyc',
    'PYMODULE'),
   ('pyiboot01_bootstrap',
-   'd:\\users\\sunkashing\\appdata\\local\\programs\\python\\python38\\lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   '/usr/local/lib/python3.7/site-packages/PyInstaller/loader/pyiboot01_bootstrap.py',
    'PYSOURCE'),
-  ('pyi_rth__tkinter',
-   'D:\\Users\\sunkashing\\AppData\\Local\\Programs\\Python\\Python38\\Lib\\site-packages\\PyInstaller\\loader\\rthooks\\pyi_rth__tkinter.py',
-   'PYSOURCE'),
-  ('pyi_rth_multiprocessing',
-   'D:\\Users\\sunkashing\\AppData\\Local\\Programs\\Python\\Python38\\Lib\\site-packages\\PyInstaller\\loader\\rthooks\\pyi_rth_multiprocessing.py',
+  ('pyi_rth_pyqt5',
+   '/usr/local/lib/python3.7/site-packages/PyInstaller/loader/rthooks/pyi_rth_pyqt5.py',
    'PYSOURCE'),
   ('video_downloader',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\video_downloader.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/video_downloader.py',
    'PYSOURCE'),
   ('video_downloader_GUI',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\video_downloader_GUI.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/video_downloader_GUI.py',
    'PYSOURCE'),
   ('version',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\version.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/version.py',
    'PYSOURCE'),
   ('merge_video_danmaku',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\merge_video_danmaku.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/merge_video_danmaku.py',
    'PYSOURCE'),
   ('json_output',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\json_output.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/json_output.py',
    'PYSOURCE'),
   ('extractor',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\extractor.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/extractor.py',
    'PYSOURCE'),
   ('common',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\common.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/common.py',
    'PYSOURCE'),
   ('bilibili',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\bilibili.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/bilibili.py',
    'PYSOURCE'),
   ('__init__',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\util\\__init__.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/util/__init__.py',
    'PYSOURCE'),
   ('fs',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\util\\fs.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/util/fs.py',
    'PYSOURCE'),
   ('git',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\util\\git.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/util/git.py',
    'PYSOURCE'),
   ('log',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\util\\log.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/util/log.py',
    'PYSOURCE'),
   ('os',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\util\\os.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/util/os.py',
    'PYSOURCE'),
   ('strings',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\util\\strings.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/util/strings.py',
    'PYSOURCE'),
   ('term',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\util\\term.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/util/term.py',
    'PYSOURCE'),
   ('__init__ 2',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\__init__ '
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/__init__ '
    '2.py',
    'PYSOURCE'),
   ('ffmpeg',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\ffmpeg.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/ffmpeg.py',
    'PYSOURCE'),
   ('ffmpeg 2',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\ffmpeg '
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/ffmpeg '
    '2.py',
    'PYSOURCE'),
   ('join_flv',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\join_flv.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/join_flv.py',
    'PYSOURCE'),
   ('join_flv 2',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\join_flv '
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/join_flv '
    '2.py',
    'PYSOURCE'),
   ('join_mp4',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\join_mp4.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/join_mp4.py',
    'PYSOURCE'),
   ('join_mp4 2',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\join_mp4 '
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/join_mp4 '
    '2.py',
    'PYSOURCE'),
   ('join_ts',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\join_ts.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/join_ts.py',
    'PYSOURCE'),
   ('join_ts 2',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\join_ts '
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/join_ts '
    '2.py',
    'PYSOURCE'),
   ('rtmpdump',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\rtmpdump.py',
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/rtmpdump.py',
    'PYSOURCE'),
   ('rtmpdump 2',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\src\\processor\\rtmpdump '
+   '/Users/jiachengsun/Library/Mobile '
+   'Documents/com~apple~CloudDocs/Script/BiliBili-video-downloader/src/processor/rtmpdump '
    '2.py',
-   'PYSOURCE'),
-  ('video_downloader.exe.manifest',
-   'D:\\Users\\sunkashing\\Desktop\\BiliBili-video-downloader\\build\\video_downloader\\video_downloader.exe.manifest',
-   'BINARY')],
+   'PYSOURCE')],
  True,
  False,
  False,

@@ -332,7 +332,6 @@ class Bilibili(VideoExtractor):
             if api_playinfo['code'] == 0:  # success
                 playinfos.append(api_playinfo)
             else:
-                print(api_playinfo['message'])
                 return
             current_quality = api_playinfo['result']['quality']
             # get alternative formats from API

@@ -4,7 +4,7 @@ from src.common import match1, maybe_print, download_urls, get_filename, parse_h
     dry_run, player
 from src.common import print_more_compatible as print
 from src.util import log
-import src.json_output
+from src import json_output
 import os
 import sys
 from urllib import error

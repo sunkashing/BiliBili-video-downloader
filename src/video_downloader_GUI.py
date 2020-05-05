@@ -7,6 +7,7 @@ from PyQt5.QtGui import QPixmap, QIcon, QTextCursor
 from PyQt5.QtWidgets import QDesktopWidget, QFrame, QFileDialog, QLabel
 from src import bilibili
 from src.merge_video_danmaku import Danmaku2ASS
+import PyQt5.sip
 
 quality_res = {'超清 4K': [3840, 2160], '高清 1080P60': [1920, 1080], '高清 1080P+': [1920, 1080],
                '高清 1080P': [1920, 1080], '高清 720P60': [1280, 720], '高清 720P': [1280, 720],
