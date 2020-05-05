@@ -43,12 +43,12 @@ $ git clone https://github.com/sunkashing/BiliBili-video-downloader
 
 #### Mac user
 
-Go to `Bilibili-video-downloader/Mac/dist/` folder, and click `video_downloader.app` to run application.
+Go to `Bilibili-video-downloader/Mac/dist/video_downloader/` folder, and click `video_downloader` to run application.
 
 
 #### Windows user
 
-Go to `Bilibili-video-downloader/Windows/dist/` folder, and click `video_downloader.exe` to run application.
+Go to `Bilibili-video-downloader/Windows/dist/video_downloader/` folder, and click `video_downloader.exe` to run application.
 
 
 
