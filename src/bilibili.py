@@ -207,6 +207,7 @@ class Bilibili(VideoExtractor):
             html_content_ = get_content(self.url, headers=self.bilibili_headers(cookie=kwargs.get('cookie')))
             playinfo_text_ = match1(html_content_, r'__playinfo__=(.*?)</script><script>')  # FIXME
             playinfo_ = json.loads(playinfo_text_) if playinfo_text_ else None
+            
 
             # warn if it is a multi-part video
             pn = initial_state['videoData']['videos']
@@ -230,6 +231,7 @@ class Bilibili(VideoExtractor):
                 current_quality = playinfo['data']['quality'] or None  # 0 indicates an error, fallback to None
                 if 'accept_quality' in playinfo['data'] and playinfo['data']['accept_quality'] != []:
                     best_quality = playinfo['data']['accept_quality'][0]
+            
             playinfos = []
             if playinfo is not None:
                 playinfos.append(playinfo)

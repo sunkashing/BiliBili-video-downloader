@@ -241,6 +241,7 @@ class VideoExtractor():
                                    key=lambda i: -self.dash_streams[i]['size'])
                     stream_id = itags[0]
                 else:
+                    thread.error_signal.emit('not downloaded ffmpeg')
                     stream_id = self.streams_sorted[0]['id'] if 'id' in self.streams_sorted[0] else \
                     self.streams_sorted[0]['itag']
 
