@@ -4,7 +4,7 @@ from src.common import match1, maybe_print, download_urls, get_filename, parse_h
     dry_run, player
 from src.common import print_more_compatible as print
 from src.util import log
-import src.json_output
+from src import json_output
 import os
 import sys
 from urllib import error
@@ -241,6 +241,7 @@ class VideoExtractor():
                                    key=lambda i: -self.dash_streams[i]['size'])
                     stream_id = itags[0]
                 else:
+                    thread.error_signal.emit('not downloaded ffmpeg')
                     stream_id = self.streams_sorted[0]['id'] if 'id' in self.streams_sorted[0] else \
                     self.streams_sorted[0]['itag']
 
